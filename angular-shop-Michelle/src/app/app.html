@@ -1,0 +1,302 @@
+<!-- ✦ Glow & Glaze Cosmetics — Full Page Layout -->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: #fdfafa; color: #2d1a27; }
+
+  /* NAVBAR */
+  .navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 6%; background: #fdfafa;
+    border-bottom: 1px solid #f5c6d0; position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 20px rgba(107,48,80,0.06);
+  }
+  .navbar-brand { display: flex; align-items: center; gap: 0.5rem; }
+  .brand-icon { font-size: 1.3rem; color: #c9956c; }
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    font-weight: 600; color: #6b3050; letter-spacing: 0.03em;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; color: #8b6070; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #6b3050; }
+  .cart-pill {
+    display: flex; align-items: center; gap: 0.4rem; background: #6b3050;
+    color: white; padding: 0.4rem 1.1rem; border-radius: 50px; font-size: 0.8rem; cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 6rem 6% 5rem; background: linear-gradient(135deg, #f7ede8 0%, #fdfafa 55%);
+    min-height: 90vh; gap: 3rem; overflow: hidden; position: relative;
+  }
+  .hero::before {
+    content: ''; position: absolute; right: -100px; top: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #f5c6d0 0%, transparent 65%);
+    border-radius: 50%; z-index: 0;
+  }
+  .hero-content { flex: 1; max-width: 540px; position: relative; z-index: 1; }
+  .hero-tagline {
+    display: inline-block; font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #c9956c; margin-bottom: 1.2rem;
+    padding: 0.3rem 1rem; border: 1px solid #c9956c; border-radius: 50px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.05; color: #4a1f38; margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: italic; color: #6b3050; }
+  .hero-sub {
+    font-size: 1rem; color: #8b6070; margin-bottom: 2.5rem;
+    line-height: 1.8; max-width: 400px;
+  }
+  .btn-hero {
+    display: inline-block; text-decoration: none; padding: 1rem 2.8rem;
+    background: linear-gradient(135deg, #6b3050, #4a1f38); color: white;
+    font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(107,48,80,0.3);
+  }
+  .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(107,48,80,0.4); }
+  .hero-visual {
+    flex: 1; display: flex; justify-content: center;
+    align-items: center; position: relative; z-index: 1;
+  }
+  .hero-img-frame { position: relative; width: 380px; }
+  .hero-img-frame::before {
+    content: ''; position: absolute; inset: -16px;
+    border: 1px solid #f5c6d0; border-radius: 4px; z-index: 0;
+  }
+  .hero-img {
+    width: 100%; border-radius: 4px; display: block;
+    position: relative; z-index: 1;
+    box-shadow: 0 30px 80px rgba(107,48,80,0.18);
+  }
+  .hero-badge {
+    position: absolute; top: -20px; right: -20px; width: 90px; height: 90px;
+    background: linear-gradient(135deg, #c9956c, #e8b890); border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; z-index: 2;
+    box-shadow: 0 8px 24px rgba(201,149,108,0.4);
+  }
+  .hero-badge span:first-child { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: white; line-height: 1; }
+  .hero-badge span:last-child { font-size: 0.55rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.85); text-transform: uppercase; }
+
+  /* PRODUCTS */
+  .products-section { padding: 6rem 6%; background: #fdfafa; }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-label {
+    display: inline-block; font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #c9956c; margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem; border-bottom: 1px solid #f5c6d0;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 400; color: #4a1f38; display: block;
+  }
+  .products-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; max-width: 1100px; margin: 0 auto;
+  }
+  .product-card {
+    background: white; border: 1px solid #f5c6d0; border-radius: 4px;
+    overflow: hidden; transition: box-shadow 0.35s, transform 0.35s; cursor: pointer;
+  }
+  .product-card:hover { box-shadow: 0 20px 60px rgba(107,48,80,0.14); transform: translateY(-8px); }
+  .product-image-wrapper { position: relative; overflow: hidden; background: #f7ede8; }
+  .product-image { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .product-card:hover .product-image { transform: scale(1.06); }
+  .product-overlay {
+    position: absolute; inset: 0; background: rgba(74,31,56,0.45);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .product-card:hover .product-overlay { opacity: 1; }
+  .btn-quick-add {
+    padding: 0.75rem 2rem; background: white; color: #6b3050; border: none;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    border-radius: 2px; transition: background 0.2s, transform 0.15s;
+  }
+  .btn-quick-add:hover { background: #f7ede8; transform: scale(1.04); }
+  .product-tag {
+    position: absolute; top: 14px; left: 14px;
+    background: linear-gradient(135deg, #6b3050, #4a1f38);
+    color: white; font-size: 0.6rem; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 2px; z-index: 1;
+  }
+  .product-info { padding: 1.6rem; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #4a1f38; margin-bottom: 0.4rem; }
+  .product-description { font-size: 0.82rem; color: #8b6070; margin-bottom: 1.4rem; line-height: 1.6; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f5c6d0; padding-top: 1rem; }
+  .product-price { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #6b3050; }
+  .btn-cart {
+    padding: 0.6rem 1.5rem; background: #6b3050; color: white; border: none;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    border-radius: 2px; transition: background 0.2s, transform 0.15s;
+  }
+  .btn-cart:hover { background: #4a1f38; transform: scale(1.04); }
+
+  /* FEATURES STRIP */
+  .features-strip {
+    background: linear-gradient(135deg, #4a1f38, #6b3050); padding: 3.5rem 6%;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center;
+  }
+  .feature-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
+  .feature-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #f5c6d0; margin-bottom: 0.4rem; }
+  .feature-text { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  /* CONTACT */
+  .contact-section { padding: 6rem 6%; background: #f7ede8; text-align: center; }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-section .section-label { color: #c9956c; }
+  .contact-section .section-title { color: #4a1f38; margin-bottom: 1rem; }
+  .contact-sub { color: #8b6070; font-size: 0.95rem; margin: 1rem 0 2.5rem; line-height: 1.8; }
+  .btn-contact {
+    display: inline-block; text-decoration: none; padding: 1rem 2.8rem;
+    border: 1px solid #6b3050; color: #6b3050; font-family: 'Jost', sans-serif;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; border-radius: 2px; transition: background 0.3s, color 0.3s, transform 0.2s;
+  }
+  .btn-contact:hover { background: #6b3050; color: white; transform: translateY(-2px); }
+
+  /* FOOTER */
+  .footer { background: #2d1a27; padding: 3rem 6%; }
+  .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+  .footer .brand-name { color: #f7ede8; }
+  .footer-divider { width: 60px; height: 1px; background: linear-gradient(to right, transparent, #c9956c, transparent); }
+  .footer-socials { display: flex; gap: 2rem; }
+  .social-link { text-decoration: none; color: rgba(255,255,255,0.4); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .social-link:hover { color: #e8a0b0; }
+  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { flex-direction: column; text-align: center; padding: 4rem 6%; min-height: auto; }
+    .hero-sub { margin: 0 auto 2.5rem; }
+    .hero-img-frame { width: 280px; }
+    .products-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .features-strip { grid-template-columns: 1fr; }
+    .nav-links { gap: 1.2rem; }
+  }
+</style>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-brand">
+    <span class="brand-icon">✦</span>
+    <span class="brand-name">{{ title }}</span>
+  </div>
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <span class="cart-pill">🛍️ &nbsp;{{ cartCount }}</span>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="hero-tagline">New 2025 Collection</span>
+    <h1 class="hero-title">Unveil Your<br><em>Radiance</em></h1>
+    <p class="hero-sub">Luxury cosmetics crafted for every complexion. Worn by every story.</p>
+    <a href="#products" class="btn-hero">Explore Collection</a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-frame">
+      <img
+        src="https://placehold.co/380x460/f5c6d0/6b3050?text=Glow+%26+Glaze"
+        alt="Hero Product"
+        class="hero-img"
+      />
+      <div class="hero-badge">
+        <span>✦</span>
+        <span>Premium</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <span class="section-label">Our Bestsellers</span>
+    <span class="section-title">Signature Collection</span>
+  </div>
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-image-wrapper">
+        <span class="product-tag">Bestseller</span>
+        <img [src]="product.image" [alt]="product.name" class="product-image"/>
+        <div class="product-overlay">
+          <button class="btn-quick-add" (click)="addToCart(product.name)">+ Quick Add</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="product-footer">
+          <span class="product-price">{{ product.price }}</span>
+          <button class="btn-cart" (click)="addToCart(product.name)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="feature-item">
+    <span class="feature-icon">🌿</span>
+    <p class="feature-title">Clean Ingredients</p>
+    <p class="feature-text">100% cruelty-free and dermatologist tested formulas.</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">✦</span>
+    <p class="feature-title">Luxury Quality</p>
+    <p class="feature-text">Premium pigments for a flawless, long-lasting finish.</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">🚚</span>
+    <p class="feature-title">Free Shipping</p>
+    <p class="feature-text">Complimentary delivery on all orders over $50.</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <span class="section-label">Get In Touch</span>
+    <span class="section-title">We'd Love to Hear From You</span>
+    <p class="contact-sub">For inquiries, collaborations, or support — our team is here for you anytime.</p>
+    <a href="mailto:hello@glowandglaze.com" class="btn-contact">hello&#64;glowandglaze.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="navbar-brand">
+      <span class="brand-icon">✦</span>
+      <span class="brand-name">{{ title }}</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-socials">
+      <a href="#" class="social-link">Instagram</a>
+      <a href="#" class="social-link">TikTok</a>
+      <a href="#" class="social-link">Pinterest</a>
+    </div>
+    <p class="footer-copy">&copy; 2025 Glow &amp; Glaze Cosmetics. All rights reserved.</p>
+  </div>
+</footer>
